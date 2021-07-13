@@ -41,5 +41,3 @@ npm run dev
     </td>
   </tr>
 </table>
-
-[⬆ Voltar ao topo](#alurakut-)<br>
