@@ -42,4 +42,4 @@ npm run dev
   </tr>
 </table>
 
-[⬆ Voltar ao topo](#alurakut)<br>
+[⬆ Voltar ao topo](#alurakut-)<br>
