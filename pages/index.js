@@ -31,6 +31,25 @@ function ProfileSideBar(props) {
   );
 }
 
+function Cards(props) {
+  return (
+    <ul>
+      {props.array.map((item, indice) => {
+        if (indice < 6) {
+          return (
+            <li key={item.id || item}>
+              <a href={item.community || `/users/${item}`} target="_blank">
+                <img src={item.image || `https://github.com/${item}.png`} />
+                <span>{item.title || item}</span>
+              </a>
+            </li>
+          );
+        }
+      })}
+    </ul>
+  );
+}
+
 export default function Home() {
   const githubUser = "aintluks";
 
@@ -39,6 +58,23 @@ export default function Home() {
       id: "123123123",
       title: "Eu odeio acordar cedo",
       image: "https://alurakut.vercel.app/capa-comunidade-01.jpg",
+      community: "#",
+    },
+
+    {
+      id: "123123124",
+      title: "ASSISTAM Invencible",
+      image:
+        "https://vortexcultural.com.br/images/2021/05/Invencible-1-Temorada.jpeg",
+      community: "#",
+    },
+
+    {
+      id: "123123125",
+      title: "RICK AND MORTY 5TEMP EP2",
+      image:
+        "https://kanto.legiaodosherois.com.br/w1200-h628-cfill/wp-content/uploads/2021/05/legiao_mwStbQnA3_LF.jpg.jpeg",
+      community: "#",
     },
   ]);
 
@@ -49,11 +85,12 @@ export default function Home() {
     "omariosouto",
     "marcobrunodev",
     "felipefialho",
+    "aintluks",
   ];
 
   return (
     <>
-      <AlurakutMenu />
+      <AlurakutMenu githubUser={githubUser} />
       <MainGrid>
         <div className="profileArea" style={{ gridArea: "profileArea" }}>
           <ProfileSideBar githubUser={githubUser} />
@@ -75,9 +112,11 @@ export default function Home() {
                 const comunidade = {
                   id: new Date().toISOString(),
                   title: dadosDoForm.get("title"),
-                  image: dadosDoForm.get("image"),
+                  image:
+                    dadosDoForm.get("image") ||
+                    `https://picsum.photos/300/300?${new Date().toISOString()}`,
+                  community: dadosDoForm.get("community"),
                 };
-                console.log(comunidade);
                 setComunidades([...comunidades, comunidade]);
               }}
             >
@@ -99,6 +138,14 @@ export default function Home() {
                 />
               </div>
 
+              <div>
+                <input
+                  placeholder="Coloque a URL da comunidade"
+                  name="community"
+                  aria-label="Coloque a URL da comunidade"
+                  type="text"
+                />
+              </div>
               <button>Criar comunidade</button>
             </form>
           </Box>
@@ -112,36 +159,12 @@ export default function Home() {
             <h2 className="smallTitle">
               Pessoas da Comunidade ({pessoasComunidade.length})
             </h2>
-
-            <ul>
-              {pessoasComunidade.map((itemAtual) => {
-                return (
-                  <li key={itemAtual}>
-                    <a href={`/users/${itemAtual}`}>
-                      <img src={`https://github.com/${itemAtual}.png`} />
-                      <span>{itemAtual}</span>
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
+            <Cards array={pessoasComunidade} />
           </ProfileRelationsBoxWrapper>
 
           <ProfileRelationsBoxWrapper>
             <h2 className="smallTitle">Comunidades ({comunidades.length})</h2>
-
-            <ul>
-              {comunidades.map((itemAtual) => {
-                return (
-                  <li key={itemAtual.id}>
-                    <a href={`/users/${itemAtual.title}`}>
-                      <img src={itemAtual.image} />
-                      <span>{itemAtual.title}</span>
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
+            <Cards array={comunidades} />
           </ProfileRelationsBoxWrapper>
         </div>
       </MainGrid>
