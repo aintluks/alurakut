@@ -11,7 +11,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 ## 🚀 Instalando o Alurakut
 
-Para instalar o Alurakut, siga estas etapas:
+Para instalar o Alurakut, siga esta etapa:
 
 Linux, macOS e Windows:
 
@@ -21,7 +21,7 @@ npm install
 
 ## ☕ Usando Alurakut
 
-Para usar Alurakut, siga estas etapas:
+Para usar Alurakut, siga esta etapa:
 
 ```
 npm run dev
@@ -41,5 +41,5 @@ npm run dev
     </td>
   </tr>
 </table>
-    
+
 [⬆ Voltar ao topo](#alurakut)<br>
