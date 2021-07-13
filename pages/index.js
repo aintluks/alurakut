@@ -38,7 +38,7 @@ function Cards(props) {
         if (indice < 6) {
           return (
             <li key={item.id || item}>
-              <a href={item.community || `/users/${item}`} target="_blank">
+              <a href={item.community || `/users/${item}`}>
                 <img src={item.image || `https://github.com/${item}.png`} />
                 <span>{item.title || item}</span>
               </a>
@@ -115,7 +115,7 @@ export default function Home() {
                   image:
                     dadosDoForm.get("image") ||
                     `https://picsum.photos/300/300?${new Date().toISOString()}`,
-                  community: dadosDoForm.get("community"),
+                  community: dadosDoForm.get("community") || "#",
                 };
                 setComunidades([...comunidades, comunidade]);
               }}
