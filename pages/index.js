@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ProfileRelationsBoxWrapper } from "../src/components/ProfileRelations";
 import {
   AlurakutMenu,
@@ -8,6 +8,7 @@ import {
 import MainGrid from "../src/components/MainGrid";
 import Box from "../src/components/Box";
 import styled from "styled-components";
+import axios from "axios";
 
 function ProfileSideBar(props) {
   return (
@@ -37,10 +38,10 @@ function Cards(props) {
       {props.array.map((item, indice) => {
         if (indice < 6) {
           return (
-            <li key={item.id || item}>
-              <a href={item.community || `/users/${item}`}>
-                <img src={item.image || `https://github.com/${item}.png`} />
-                <span>{item.title || item}</span>
+            <li key={item.id}>
+              <a href={item.community || item.url}>
+                <img src={item.image || item.avatar_url} />
+                <span>{item.title || item.login}</span>
               </a>
             </li>
           );
@@ -50,8 +51,21 @@ function Cards(props) {
   );
 }
 
+async function getMyFriends(githubUser) {
+  return await axios.get(
+    `https://api.github.com/users/${githubUser}/followers`
+  );
+}
+
 export default function Home() {
   const githubUser = "aintluks";
+
+  const [pessoasComunidade, setPessoasComunidade] = useState([]);
+
+  useEffect(async () => {
+    const response = await getMyFriends(githubUser);
+    setPessoasComunidade(response.data);
+  }, []);
 
   const [comunidades, setComunidades] = React.useState([
     {
@@ -60,7 +74,6 @@ export default function Home() {
       image: "https://alurakut.vercel.app/capa-comunidade-01.jpg",
       community: "#",
     },
-
     {
       id: "123123124",
       title: "ASSISTAM Invencible",
@@ -68,7 +81,6 @@ export default function Home() {
         "https://vortexcultural.com.br/images/2021/05/Invencible-1-Temorada.jpeg",
       community: "#",
     },
-
     {
       id: "123123125",
       title: "RICK AND MORTY 5TEMP EP2",
@@ -77,16 +89,6 @@ export default function Home() {
       community: "#",
     },
   ]);
-
-  const pessoasComunidade = [
-    "rafaballerini",
-    "juunegreiros",
-    "peas",
-    "omariosouto",
-    "marcobrunodev",
-    "felipefialho",
-    "aintluks",
-  ];
 
   return (
     <>
