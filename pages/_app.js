@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: sans-serif;
-    background-color: #D9E6F6;
+    background: no-repeat center/100% url('https://azeheb.com.br/blog/wp-content/uploads/2017/10/rick-and-morty-e-a-ciencias.jpg');
   }
 
   #__next {
