@@ -4,7 +4,7 @@ import MainGrid from "../src/components/MainGrid";
 import ProfileSideBar from "../src/components/ProfileArea";
 import WelcomeArea from "../src/components/WelcomeArea";
 import ProfileRelationsArea from "../src/components/ProfileRelationsArea";
-import { getMyCommunities, getMyFriends } from "../src/helpers";
+import { getMyCommunities, getFollowing } from "../src/helpers";
 
 export default function Home() {
   const githubUser = "aintluks";
@@ -14,7 +14,7 @@ export default function Home() {
   const [comunidades, setComunidades] = useState(getMyCommunities());
 
   useEffect(async () => {
-    const response = await getMyFriends(githubUser);
+    const response = await getFollowing(githubUser);
     setPessoasComunidade(response.data);
   }, []);
 

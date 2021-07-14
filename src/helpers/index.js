@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const getMyFriends = async function getMyFriends(githubUser) {
+export const getFollowing = async (githubUser) => {
   return await axios.get(
-    `https://api.github.com/users/${githubUser}/followers`
+    `https://api.github.com/users/${githubUser}/following`
   );
 };
 
