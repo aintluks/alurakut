@@ -21,7 +21,7 @@ export default function WelcomeArea(props) {
   return (
     <div className="welcomeArea" style={{ gridArea: "welcomeArea" }}>
       <Box>
-        <h1 className="title">Bem vinde</h1>
+        <h1 className="title">Bem vinde, {props.githubUser}</h1>
         <OrkutNostalgicIconSet />
       </Box>
 

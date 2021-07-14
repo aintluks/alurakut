@@ -26,6 +26,7 @@ export default function Home() {
         <ProfileSideBar githubUser={githubUser} />
 
         <WelcomeArea
+          githubUser={githubUser}
           comunidades={comunidades}
           setComunidades={setComunidades}
         />
