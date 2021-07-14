@@ -1,3 +1,4 @@
+import { addCommunity } from "../../helpers";
 import { OrkutNostalgicIconSet } from "../../lib/AlurakutCommons";
 import Box from "../Box";
 
@@ -7,15 +8,14 @@ export default function WelcomeArea(props) {
     const dadosDoForm = new FormData(e.target);
 
     const comunidade = {
-      id: new Date().toISOString(),
       title: dadosDoForm.get("title"),
-      image:
+      imageUrl:
         dadosDoForm.get("image") ||
         `https://picsum.photos/300/300?${new Date().toISOString()}`,
-      community: dadosDoForm.get("community") || "#",
+      communityUrl: dadosDoForm.get("community") || "#",
     };
 
-    props.setComunidades([...props.comunidades, comunidade]);
+    addCommunity(comunidade, props.comunidades, props.setComunidades);
   }
 
   return (

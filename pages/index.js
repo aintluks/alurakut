@@ -11,11 +11,14 @@ export default function Home() {
 
   const [pessoasComunidade, setPessoasComunidade] = useState([]);
 
-  const [comunidades, setComunidades] = useState(getMyCommunities());
+  const [comunidades, setComunidades] = useState([]);
 
   useEffect(async () => {
-    const response = await getFollowing(githubUser);
-    setPessoasComunidade(response.data);
+    const followingResponse = await getFollowing(githubUser);
+    const communities = await getMyCommunities();
+
+    setComunidades(communities);
+    setPessoasComunidade(followingResponse.data);
   }, []);
 
   return (

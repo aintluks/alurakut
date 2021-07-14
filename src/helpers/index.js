@@ -1,32 +1,43 @@
 import axios from "axios";
+const { SiteClient } = require("datocms-client");
+
+const client = new SiteClient(
+  process.env.DATO_TOKEN || process.env.NEXT_PUBLIC_DATO_TOKEN
+);
 
 export const getFollowing = async (githubUser) => {
-  return await axios.get(
-    `https://api.github.com/users/${githubUser}/following`
-  );
+  try {
+    return await axios.get(
+      `https://api.github.com/users/${githubUser}/following`
+    );
+  } catch (error) {
+    console.log("deu ruim irmao ", error);
+  }
 };
 
-export const getMyCommunities = () => {
-  return [
-    {
-      id: "123123123",
-      title: "Eu odeio acordar cedo",
-      image: "https://alurakut.vercel.app/capa-comunidade-01.jpg",
-      community: "#",
-    },
-    {
-      id: "123123124",
-      title: "ASSISTA Invencible",
-      image:
-        "https://vortexcultural.com.br/images/2021/05/Invencible-1-Temorada.jpeg",
-      community: "#",
-    },
-    {
-      id: "123123125",
-      title: "RICK AND MORTY 5TEMP EP2",
-      image:
-        "https://kanto.legiaodosherois.com.br/w1200-h628-cfill/wp-content/uploads/2021/05/legiao_mwStbQnA3_LF.jpg.jpeg",
-      community: "#",
-    },
-  ];
+export const getMyCommunities = async () => {
+  try {
+    return await client.items.all();
+  } catch (error) {
+    console.log("deu ruim irmao ", error);
+  }
+};
+
+export const addCommunity = async (
+  { title, imageUrl, communityUrl },
+  comunidades,
+  setComunidades
+) => {
+  try {
+    const response = await client.items.create({
+      itemType: "967829",
+      title: title,
+      imageUrl: imageUrl,
+      communityUrl: communityUrl,
+    });
+
+    setComunidades([response, ...comunidades]);
+  } catch (error) {
+    console.log("deu ruim irmao ", error);
+  }
 };

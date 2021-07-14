@@ -7,8 +7,8 @@ function Cards(props) {
         if (indice < 6) {
           return (
             <li key={item.id}>
-              <a href={item.community || item.html_url} target="_blank">
-                <img src={item.image || item.avatar_url} />
+              <a href={item.communityUrl || item.html_url} target="_blank">
+                <img src={item.imageUrl || item.avatar_url} />
                 <span>{item.title || item.login}</span>
               </a>
             </li>
