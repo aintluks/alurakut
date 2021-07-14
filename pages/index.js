@@ -39,7 +39,7 @@ function Cards(props) {
         if (indice < 6) {
           return (
             <li key={item.id}>
-              <a href={item.community || item.url}>
+              <a href={item.community || item.html_url} target="_blank">
                 <img src={item.image || item.avatar_url} />
                 <span>{item.title || item.login}</span>
               </a>
@@ -76,7 +76,7 @@ export default function Home() {
     },
     {
       id: "123123124",
-      title: "ASSISTAM Invencible",
+      title: "ASSISTA Invencible",
       image:
         "https://vortexcultural.com.br/images/2021/05/Invencible-1-Temorada.jpeg",
       community: "#",
