@@ -131,19 +131,18 @@ export default function Home() {
                 />
               </div>
 
-              <div>
+              <div style={{ display: "flex" }}>
                 <input
-                  placeholder="Coloque uma URL para usarmos de capa"
+                  placeholder="URL de capa"
                   name="image"
+                  className="inputURL"
                   aria-label="Coloque uma URL para usarmos de capa"
                   type="text"
                 />
-              </div>
-
-              <div>
                 <input
-                  placeholder="Coloque a URL da comunidade"
+                  placeholder="URL da comunidade"
                   name="community"
+                  className="inputURL"
                   aria-label="Coloque a URL da comunidade"
                   type="text"
                 />

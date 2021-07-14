@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Box = styled.div`
-  background-color: #fff;
+  background-color: #0e0e0e;
   border-radius: 8px;
 
   padding: 16px;
@@ -18,17 +18,19 @@ const Box = styled.div`
     font-size: 32px;
     font-weight: 400;
     margin-bottom: 20px;
+    color: #fdfdfd;
   }
   .subTitle {
     font-size: 18px;
     font-weight: 400;
     margin-bottom: 20px;
+    color: #fdfdfd;
   }
   .smallTitle {
     margin-bottom: 20px;
     font-size: 16px;
     font-weight: 700;
-    color: #333333;
+    color: #fdfdfd;
     margin-bottom: 20px;
   }
   hr {

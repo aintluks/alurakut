@@ -58,7 +58,8 @@ export function AlurakutMenu({ githubUser }) {
 }
 AlurakutMenu.Wrapper = styled.header`
   width: 100%;
-  background-color: #308bc5;
+  /* background-color: #308bc5; */
+  background-color: #0e0e0e;
   .alurakutMenuProfileSidebar {
     background: white;
     position: fixed;
@@ -98,7 +99,7 @@ AlurakutMenu.Wrapper = styled.header`
     }
   }
   .container {
-    background-color: #308bc5;
+    background-color: #0e0e0e;
     padding: 7px 16px;
     max-width: 1110px;
     margin: auto;
@@ -161,7 +162,7 @@ AlurakutMenu.Wrapper = styled.header`
   }
 `;
 AlurakutMenu.Logo = styled.img`
-  background-color: #ffffff;
+  background-color: #0e0e0e;
   padding: 9px 14px;
   border-radius: 1000px;
   height: 34px;
@@ -319,7 +320,7 @@ OrkutNostalgicIconSet.List = styled.ul`
   flex-wrap: wrap;
   li {
     font-size: 12px;
-    color: #5a5a5a;
+    color: #fdfdfd;
     display: grid;
     grid-template-areas:
       "title title"
