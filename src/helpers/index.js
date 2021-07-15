@@ -1,7 +1,7 @@
 import axios from "axios";
 const { SiteClient } = require("datocms-client");
 
-const client = new SiteClient(process.env.DATO_TOKEN);
+const client = new SiteClient(process.env.NEXT_PUBLIC_DATO_TOKEN);
 
 export const getFollowing = async (githubUser) => {
   try {
