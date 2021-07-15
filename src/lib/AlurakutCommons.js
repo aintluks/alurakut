@@ -62,6 +62,7 @@ AlurakutMenu.Wrapper = styled.header`
   .alurakutMenuProfileSidebar {
     background: #0e0e0e;
     position: fixed;
+    overflow-y: scroll;
     z-index: 100;
     padding: 46px;
     bottom: 0;
